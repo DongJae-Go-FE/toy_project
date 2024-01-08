@@ -5,7 +5,10 @@ const { StyledSquare } = SquareStyledComponents;
 
 export type ValueType = number | "O" | "X" | null;
 
-const Square = ({ value }: { value: ValueType }) => {
+const Square = (
+  { value }: { value: ValueType },
+  changeValue: (value: ValueType) => ValueType
+) => {
   const [squareValue, setSquareValue] = useState<ValueType>(value);
 
   //여기서 부터
