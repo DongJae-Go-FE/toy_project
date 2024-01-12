@@ -18,7 +18,7 @@ const Square = (
       <button
         type="button"
         onClick={() => {
-          console.log(value);
+          console.log();
         }}
       >
         {squareValue}

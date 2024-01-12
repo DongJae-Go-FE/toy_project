@@ -3,7 +3,7 @@ import StyledStudy from "./styled";
 
 const { Container } = StyledStudy;
 
-// Promise와 async, await를 학습하기 앞서 
+// Promise와 async, await를 학습하기 앞서
 // 비동기와 동기를 알아야한다.
 
 // 1. 동기 vs 비동기
@@ -23,6 +23,48 @@ const { Container } = StyledStudy;
 // 1.비동기를 처리 위해 콜백 패턴을 사용하면 처리 순서를 보장하기 위해 여러 콜백이 중첩되어 복잡도가 높아지므로 콜백 헬이 발생을 한다.
 // 2.콜백헬은 가독성이 나쁘므로 실수 발생 이를 해결하기 위해 Promise등장
 
+//프로미스
+
+const 프로미스 = new Promise((resolve, reject) => {
+  //resolve(파라미터1) === 성공을 판별하는 함수 then에 성공 파라미터 값을 전달 성공이라흔 함수 실행시 성고 실행
+  //reject(파라미터2) === 실패를 판별하는 함수 실패 파라미터 값도 전달 실패라는 함수 실행시
+});
+//비동기 처리를 할 수 있는다 일단 선언
+//성공 실패 판정기계  ~~~일 경우 성공, ~~~일 경우 실패
+
+프로미스
+  .then((/**파라미터1 */) => {
+    //파라미터1 전달
+  })
+  .then(() => {})
+  .catch((/**파라미터2 */) => {
+    /**파라미터2 전달 */
+  })
+  .finally(() => {
+    //성공이든 실패든 끝나고 실행
+  });
+
+//then으로 순차적으로 실행 성공 함수
+//실패시 catch 안에 값 실행
+
+//순차적으로 실행할 때 콜백 대신 사용할 수 있는 함수
+//이거 왜 쓰냐고? 코드 깔끔하게 보려는 디자인 패턴
+
+//이것도 싫으면 async/await
+
+//async 키워드를 쓰면 promise 자동 생성 함수 앞에
+//await은 프로미스가 끝나면 실행하라는 뜻 즉 then
+
+async function 더하기() {
+  var 어려운연산 = new Promise((성공, 실패) => {
+    var 결과 = 1 + 1;
+    성공(결과);
+  });
+  // asyncv성공 판별이 필요한 경우
+  try {  var 결과 = await 어려운연산 }
+  catch { /** 실패할 경우 */ }
+}
+더하기();
 
 const Promise_Async_Await = () => {
   return <Container></Container>;

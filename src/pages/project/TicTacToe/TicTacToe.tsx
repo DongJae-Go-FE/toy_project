@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import TicTacToeStyledComponents from "./styled";
-import Square from "./components/Square/Square";
+import Square, { ValueType } from "./components/Square/Square";
 
 const { Container, Title, SubInfo, Board } = TicTacToeStyledComponents;
 
@@ -24,7 +24,19 @@ const TicTacToe = () => {
     },
   ]);
 
-  const changeValue = (value) => {};
+  const changeValue = (value: ValueType) => {};
+
+  const data: { id: number }[] = [
+    { id: 1 },
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+    { id: 9 },
+  ];
 
   return (
     <Container>
@@ -35,8 +47,8 @@ const TicTacToe = () => {
           {winner && <p>Winner:</p>}
         </SubInfo>
         <Board>
-          {[...Array(9)].map((_, i) => {
-            return <Square changeValue={changeValue(value)} value={i + 1} key={i} />;
+          {data.map((item, i) => {
+            return <Square value={item.id} key={i} />;
           })}
         </Board>
       </div>
