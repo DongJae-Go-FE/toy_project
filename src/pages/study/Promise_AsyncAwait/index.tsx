@@ -55,14 +55,26 @@ const 프로미스 = new Promise((resolve, reject) => {
 //async 키워드를 쓰면 promise 자동 생성 함수 앞에
 //await은 프로미스가 끝나면 실행하라는 뜻 즉 then
 
+fetch("https://codingapple1.github.io/price.json")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.log("실패함");
+  });
+
 async function 더하기() {
   var 어려운연산 = new Promise((성공, 실패) => {
     var 결과 = 1 + 1;
     성공(결과);
   });
   // asyncv성공 판별이 필요한 경우
-  try {  var 결과 = await 어려운연산 }
-  catch { /** 실패할 경우 */ }
+  try {
+    var 결과 = await 어려운연산;
+  } catch {
+    /** 실패할 경우 */
+  }
 }
 더하기();
 
