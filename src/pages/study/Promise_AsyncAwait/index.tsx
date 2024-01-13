@@ -69,7 +69,7 @@ async function 더하기() {
     var 결과 = 1 + 1;
     성공(결과);
   });
-  // asyncv성공 판별이 필요한 경우
+  // asyncv성공 판별이 필요한 경우.
   try {
     var 결과 = await 어려운연산;
   } catch {
