@@ -24,9 +24,7 @@ const TicTacToe = () => {
     },
   ]);
 
-  const changeValue = (value: ValueType) => {};
-
-  const data: { id: number }[] = [
+  const data: { id: number | "o" | "x" }[] = [
     { id: 1 },
     { id: 2 },
     { id: 3 },
@@ -38,6 +36,10 @@ const TicTacToe = () => {
     { id: 9 },
   ];
 
+  const playerChange = (value:boolean) => {
+    setCounter(value);
+  };
+
   return (
     <Container>
       <Title>Tic!Tac!Toe!</Title>
@@ -48,7 +50,15 @@ const TicTacToe = () => {
         </SubInfo>
         <Board>
           {data.map((item, i) => {
-            return <Square value={item.id} key={i} />;
+            return (
+              <Square
+                value={item.id}
+                key={i}
+                counter={counter}
+                playerChange={playerChange}
+                players={counter ? players[0].sign : players[1].sign}
+              />
+            );
           })}
         </Board>
       </div>
